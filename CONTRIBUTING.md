@@ -254,3 +254,6 @@ installation, the following steps may be needed:
 
     # PIP_FIND_LINKS currently breaks test_uninstall.py
     unset PIP_FIND_LINKS
+
+    # Avoir fixture missing error
+    mkdir tests/pypi/fixtures
