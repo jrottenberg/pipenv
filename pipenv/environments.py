@@ -133,6 +133,12 @@ PIPENV_DOTENV_LOCATION = os.environ.get("PIPENV_DOTENV_LOCATION")
 Default is to load ``.env`` from the project root, if found.
 """
 
+PIPENV_EMOJI = os.environ.get("PIPENV_EMOJI")
+"""Emoji to use as install label.
+
+If not set will use the Snake emoji.
+"""
+
 PIPENV_EMULATOR = os.environ.get("PIPENV_EMULATOR", "")
 """If set, the terminal emulator's name for ``pipenv shell`` to use.
 
