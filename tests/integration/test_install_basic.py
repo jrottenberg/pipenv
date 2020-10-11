@@ -2,6 +2,7 @@
 from __future__ import absolute_import, print_function
 import os
 
+import mock
 import pytest
 
 from flaky import flaky
@@ -493,3 +494,12 @@ extras = ["socks"]
         assert 'six = {version = "*"}' in contents
         assert 'requests = {version = "*"' in contents
         assert 'flask = "*"' in contents
+
+
+@pytest.mark.install
+@mock.patch('sys.stderr.isatty', return_value=True)
+def test_emoji(raw_venv, PipenvInstance):
+    with temp_environ(), PipenvInstance(chdir=True) as p:
+        os.environ['PIPENV_EMOJI'] = "🥼"
+        c = p.pipenv('install urllib3')
+        assert '🥼  ' in c.out
